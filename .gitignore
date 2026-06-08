@@ -1,0 +1,15 @@
+# brainstorming companion sessions
+.superpowers/
+
+# env & secrets — Discord webhook URL, Stripe keys supplied at deploy time only
+.env
+*.env
+!*.env.example
+
+node_modules/
+dist/
+build/
+.svelte-kit/
+
+# playwright MCP session artifacts
+.playwright-mcp/

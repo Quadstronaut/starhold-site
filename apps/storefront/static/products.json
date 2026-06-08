@@ -1,0 +1,6 @@
+{"products":[
+ {"id":"shushgame","name":"Shushgame","tagline":"","status":"live","url":"https://shushgame.com","pricing_url":"https://shushgame.com","pricing":{"model":"external"},"order":1},
+ {"id":"custom-bots","name":"Custom Discord Bots","tagline":"","status":"live","url":"https://starhold.dev/products/custom-bots","pricing_url":"https://starhold.dev/products/custom-bots","pricing":{"model":"subscription","monthly_usd":5},"order":2},
+ {"id":"qnix","name":"QNix","tagline":"","status":"coming-soon","url":"https://starhold.dev/products/qnix","pricing_url":null,"pricing":{"model":"tbd"},"order":3},
+ {"id":"automation","name":"Custom Automation","tagline":"","status":"live","url":"https://starhold.dev/services/automation","pricing_url":null,"pricing":{"model":"quote"},"order":4}
+]}

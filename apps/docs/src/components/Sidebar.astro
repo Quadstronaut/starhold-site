@@ -1,0 +1,95 @@
+---
+/**
+ * Sidebar override — renders the default Starlight sidebar nav then appends
+ * a pinned title-block footer linking to the sister sites.
+ *
+ * Override pattern (Starlight ≥0.36):
+ *   import Default from '@astrojs/starlight/components/Sidebar.astro'
+ *   Render <Default /> (no slot pass-through needed; it reads from Astro.locals).
+ * Source: https://starlight.astro.build/guides/overriding-components/
+ */
+import Default from '@astrojs/starlight/components/Sidebar.astro';
+---
+
+<Default />
+
+<footer class="sb-footer">
+	<a class="sb-footer__link" href="https://starhold.dev" target="_blank" rel="noopener noreferrer">
+		<span class="sb-footer__icon">⌂</span>
+		<span class="sb-footer__text">
+			<span class="sb-footer__label">Mission Control</span>
+			<span class="sb-footer__domain">starhold.dev</span>
+		</span>
+	</a>
+	<a class="sb-footer__link" href="https://starhold.app" target="_blank" rel="noopener noreferrer">
+		<span class="sb-footer__icon">⬡</span>
+		<span class="sb-footer__text">
+			<span class="sb-footer__label">The Hangar</span>
+			<span class="sb-footer__domain">starhold.app</span>
+		</span>
+	</a>
+</footer>
+
+<style>
+	/*
+	 * The Starlight .sidebar-content is a flex column (sl-flex + flex-direction:column).
+	 * Our component is rendered as its last child, so margin-top: auto pins the footer
+	 * to the bottom when there is room; it scrolls naturally when the nav is long.
+	 */
+	.sb-footer {
+		margin-top: auto;
+		/* thin title-block ruling — matches schematic linework feel */
+		border-top: 1px solid var(--sl-color-accent, #7da7cc);
+		padding: 0.75rem 0 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.sb-footer__link {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.35rem 0.25rem;
+		color: color-mix(in srgb, var(--sl-color-text) 65%, transparent);
+		text-decoration: none;
+		border-radius: 2px;
+		transition: color 0.15s ease, background-color 0.15s ease;
+	}
+
+	.sb-footer__link:hover,
+	.sb-footer__link:focus-visible {
+		color: var(--sl-color-accent, #7da7cc);
+		background-color: color-mix(in srgb, var(--sl-color-accent, #7da7cc) 8%, transparent);
+		outline: none;
+	}
+
+	.sb-footer__icon {
+		font-size: 0.8rem;
+		flex-shrink: 0;
+		opacity: 0.7;
+		width: 1rem;
+		text-align: center;
+	}
+
+	.sb-footer__text {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.2;
+	}
+
+	.sb-footer__label {
+		font-size: 0.65rem;
+		font-variant: small-caps;
+		letter-spacing: 0.08em;
+		text-transform: lowercase;
+		font-weight: 600;
+	}
+
+	.sb-footer__domain {
+		font-size: 0.6rem;
+		letter-spacing: 0.04em;
+		opacity: 0.6;
+		font-family: var(--sl-font-mono, monospace);
+	}
+</style>
